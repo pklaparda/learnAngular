@@ -1,0 +1,42 @@
+<div class="container">
+    <h1>Learning Angular the not-so-sure easy way</h1>
+
+    <br><br>
+
+    <h3>Learn two way binding and interpolation</h3>
+    <div class="form-group">
+        <label>Hello
+            <span *ngIf='friend.value.length; else unknown'> {{friend.value}}</span>
+            <ng-template #unknown>Unknown</ng-template>
+            , howdy?
+        </label>
+        <input #friend type="text" (keyup)='0' class="form-control d-inline" placeholder="Enter your gorgeous name">
+    </div>
+
+    <br><br>
+
+    <h3>Work with Directives and some Rxjs cool stuff</h3>
+    <div class="form-group">
+        <label>What do you want to do today?</label>
+        <input #todoItem [(ngModel)]='newTodosInputValue' type="text" class="form-control"
+            (keyup)='didYouPressEnter($event)'>
+    </div>
+    <button class="btn btn-primary" (click)='addNewItem2()'>Add item!</button>
+
+    <ul id='thingsToDo' class="list-group mt-3">
+        <li *ngFor='let todo of todoItems' class="list-group-item d-flex justify-content-between align-items-center"
+            [class.active]='todo.important'>
+            <div>{{todo.value}}</div>
+            <button [className]="todo.important?'btn btn-secondary':'btn btn-primary'"
+                (click)='todo.important=!todo.important'>{{todo.important?'nag.. is not important':'It\'s important!'}}</button>
+        </li>
+    </ul>
+
+
+    <br><br>
+
+    <h3>Using Forms</h3>
+    <app-simple-form [selectStuff]='selectStuff' (submited)='doSomethingWithSubmitedStuff($event)'></app-simple-form>
+
+    <br><br>
+</div>

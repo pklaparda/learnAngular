@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>Get in touch!</h1>
+    <app-simple-form *ngIf='requireSubmition' [selectStuff]='sports' (submited)='onDataSubmited($event)'>
+    </app-simple-form>
+    <h4 *ngIf='guyToGreet.length'>
+        {{guyToGreet}} boy, see you around!
+    </h4>
+</div>

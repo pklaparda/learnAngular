@@ -1,0 +1,20 @@
+<form [formGroup]='profileForm' (ngSubmit)='submit()'>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter email" formControlName='email'>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+            formControlName='password'>
+    </div>
+    <div class="form-group">
+        <label for="exampleSelect1">What is your favourite sport</label>
+        <select class="form-control" formControlName='sport'>
+            <option value="" selected disabled>Select one...</option>
+            <option *ngFor="let option of selectStuff" value="option">{{option}}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Submit and let's go!</button>
+</form>

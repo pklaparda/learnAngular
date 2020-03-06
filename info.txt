@@ -1,0 +1,55 @@
+getting started with Angular:
+
+1.intro and doc
+2.create a simple app
+3.basic scaffolding
+4.declarative framework
+5.using forms
+6.services
+7.routes
+8.lazy loading
+
+1.intro and doc
+requirements: 
+- install nodejs (lts version is ok)
+- install CLI by runing 'npm install -g @angular/cli'
+no problem using the last CLI version if the app's is older.
+https://angular.io/
+use the appropiate version of your app.
+
+2.create a simple app
+run the fallowing on your workspace:
+'ng new learnAngular --skip-tests --style scss --minimal --routing'
+and when the cmd is finished 'ng serve -o'
+'new' is used to create an app or library (go in deep other day)
+'--skip-tests' wont create specs files
+'--style' defines the styling extension (css, less, sass, scss)
+'--minimal' wont install karma and test engines..
+'--routing' created default routing file for base module
+- hot reload: cool tool.
+
+3.basic scaffolding
+show dir structure
+
+4.declarative framework
+- interpolation
+- two way binding!
+- event oriented
+- directives
+
+5.using forms
+- reactiveForms
+
+6.services
+- DI and reusability
+Dependencies are services or objects that a class needs to perform its function. DI is a coding pattern in which a class asks for dependencies from external sources rather than creating them itself.
+- subscribe to a service
+- observables
+- rxjs operators
+
+7.routes
+- navigation
+- queryParams
+
+8.lazy loading
+- only if we've got time

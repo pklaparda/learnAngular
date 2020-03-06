@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>About us!</h1>
+
+    <p>Fancy some services?</p>
+    <button class="btn btn-success" (click)='fetchImg($event)'>Fetch a new Image!</button>
+    <span *ngIf='loading' class="pl-3">Loading...</span>
+
+    <img *ngIf='url.length' [src]='url' alt="" class="w-50 d-block mt-4" />
+</div>
