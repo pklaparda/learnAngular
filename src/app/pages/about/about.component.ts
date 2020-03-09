@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from 'src/app/services/image.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about',
@@ -8,10 +9,10 @@ import { ImageService } from 'src/app/services/image.service';
 })
 export class AboutComponent implements OnInit {
 
-  url: string = '';
+  url = null;
   loading = false;
 
-  constructor(private imgSrv: ImageService) { }
+  constructor(private imgSrv: ImageService, private dZanitazer: DomSanitizer) { }
 
   ngOnInit() {
   }
@@ -19,7 +20,7 @@ export class AboutComponent implements OnInit {
   fetchImg() {
     this.loading = true;
     this.imgSrv.getRandomPic().subscribe(imgUrl => {
-      this.url = imgUrl;
+      this.url = this.dZanitazer.bypassSecurityTrustUrl(imgUrl);
       this.loading = false;
     });
   }

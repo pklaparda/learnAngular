@@ -7,14 +7,18 @@ import { tap, map } from 'rxjs/operators';
 })
 export class ImageService {
 
-  endpoint = 'https://jsonplaceholder.typicode.com/photos/';
+  // endpoint = 'https://jsonplaceholder.typicode.com/photos/';
+  endpoint = 'http://localhost:3300/dummyRandomImage';
+  random = Math.round(Math.random() * 5);
 
   constructor(private http: HttpClient) { }
 
   getRandomPic() {
-    return this.http.get(`${this.endpoint}${Math.round(Math.random() * 5000)}`).pipe(
-      tap(res => console.log(res)),
-      map(res => (res as any).url as string)
-    );
+    return this.http.get(`${this.endpoint}`)
+      .pipe(
+        tap(res => console.log(res)),
+        map(res => (res as any).url as string)
+      )
+      ;
   }
 }
